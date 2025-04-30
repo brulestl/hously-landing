@@ -1,0 +1,211 @@
+{
+    "hero": {
+      "find": "Find the perfect",
+      "for_you": "for you",
+      "tagline": "Zero commission for buyers. Flat fee for sellers. Total transparency for everyone. Search, schedule, and explore—100% online.",
+      "learn_more": "Learn More",
+      "animation": {
+        "home": "home",
+        "villa": "villa",
+        "office": "office"
+      }
+    },
+    "form": {
+      "search_label": "Search :",
+      "search_placeholder": "Search your Keywords",
+      "select_categories_label": "Select Categories:",
+      "min_price_label": "Min Price :",
+      "max_price_label": "Max Price :",
+      "search_button": "Search"
+    },
+    "categories": {
+      "title": "Listing Categories",
+      "subtitle": "A modern platform for buying, selling, or renting properties without hidden 'administrative' fees.",
+      "cities": {
+        "podgorica": "Podgorica",
+        "bar": "Bar",
+        "tivat": "Tivat",
+        "kotor": "Kotor",
+        "kolasin": "Kolašin"
+      }
+    },
+    "houses": {
+      "apartment": "Apartment",
+      "offices": "Offices",
+      "townhome": "Townhome"
+    },
+    "about": {
+      "headline": "Quickly and safely sell and rent your property",
+      "subheadline": "Save your time and easily sell or rent your property with the lowest commission on the market. Showcase your property with a modern 360° view, reaching thousands of buyers and renters searching daily.",
+      "bullets": {
+        "transparent": "100% Transparent",
+        "no_hidden": "No hidden costs",
+        "no_waste_time": "No time wasted"
+      },
+      "main_cta": "Offer Property",
+      "learn_more": "Learn More",
+      "close_modal": "Close modal"
+    },
+    "index_nine": {
+      "headline": "Buy or rent an apartment without commission.",
+      "subheadline": "A modern platform for buying, selling, or renting properties without hidden 'administrative' fees.",
+      "tabs": {
+        "buy": "Buy",
+        "sell": "Sell",
+        "rent": "Rent"
+      },
+      "form": {
+        "search_label": "Search :",
+        "search_placeholder": "Search your Keywords",
+        "select_categories_label": "Select Categories:",
+        "min_price_label": "Min Price :",
+        "max_price_label": "Max Price :",
+        "search_button": "Search"
+      },
+      "sections": {
+        "listing_categories": "Listing Categories",
+        "featured_properties": "Featured Properties",
+        "view_more": "View More Properties",
+        "meet_team": "Meet The Agent Team"
+      }
+    },
+    "feature": {
+      "headline": "Buy or rent apartment with no commission",
+      "text": "Don't have enough time to find a good and pleasant place to live? And just when you think you've found your dream apartment in real life it doesn't even look half as nice as in the pictures. We know how you feel, that is the reason why City Expert exists! It's time to forget these unpleasant moments! No more surprises because with our innovative real estate view you will have a complete insight into everything that is important.",
+      "buttons": {
+        "sale": "Buy property",
+        "rent": "Rent property"
+      },
+      "transparency": {
+        "title": "Transparency",
+        "text": "We create comprehensive presentations of real estate with interactive 360° display, high quality photos and video, floor plan for better view. Easy, fast and without wasting your time!"
+      },
+      "direct_communication": {
+        "title": "Direct communication",
+        "text": "Communicate with the owner directly through just a few clicks on our website. Just register, choose a desired real estate and a viewing date, and we will connect you with the owner."
+      },
+      "free_of_charge": {
+        "title": "Free of charge for buyers and tenants",
+        "text": "If you want to buy or rent your new place for living, we are here to help you, completely free of charge! Yes, you read well, we are saving your money!"
+      }
+    },
+    "counter": {
+        "properties_sold": "Properties Sold",
+        "international_partners": "International Partners",
+        "years_experience": "Years of Experience"
+    },
+    "newsletter": {
+        "title": "Subscribe to Newsletter!",
+        "description": "Subscribe to get latest updates and information.",
+        "placeholder": "Enter your email :",
+        "button": "Subscribe"
+    },
+    "footer": {
+        "platform_description": "Montenegro's first tech-forward real-estate platform that lets buyers purchase or rent homes commission-free. From Podgorica condos to Adriatic villas, we deliver a transparent, data-rich search experience that saves time and money for savvy local and international buyers.",
+        "company": "Company",
+        "about_us": "About Us",
+        "services": "Services",
+        "pricing": "Pricing",
+        "blog": "Blog",
+        "login": "Login",
+        "useful_links": "Useful Links",
+        "terms": "Terms",
+        "privacy": "Privacy",
+        "listing": "Listing",
+        "contact": "Contact",
+        "copyright": "© {year} Hously. Design & Develop with ❤️ by Shreethemes"
+    },
+    "filters": {
+      "title": "Filters",
+      "apply": "Apply",
+      "clear": "Clear",
+      "rent": {
+        "featured": {
+          "title": "Featured",
+          "recommended": "Recommended by price and quality",
+          "luxury": "Luxury"
+        },
+        "furnishing": {
+          "title": "Furnishing",
+          "furnished": "Furnished",
+          "semiFurnished": "Semi-furnished",
+          "unfurnished": "Unfurnished"
+        },
+        "amenities": {
+          "title": "Amenities",
+          "alarm": "Alarm",
+          "ac": "Air Conditioning",
+          "tv": "TV",
+          "washingMachine": "Washing Machine",
+          "bath": "Bathtub",
+          "shower": "Shower Cabin",
+          "dishwasher": "Dishwasher"
+        },
+        "building": {
+          "title": "Building",
+          "elevator": "Elevator",
+          "intercom": "Intercom",
+          "cameras": "Security Cameras",
+          "security": "Security",
+          "wheelchairAccess": "Wheelchair Access"
+        },
+        "parking": {
+          "title": "Parking",
+          "garage": "Garage",
+          "private": "Private Parking",
+          "building": "Building Parking",
+          "public": "Public Parking"
+        },
+        "pets": {
+          "title": "Pets",
+          "allowed": "Allowed",
+          "notAllowed": "Not Allowed"
+        }
+      },
+      "buy": {
+        "featured": {
+          "title": "Featured",
+          "recommended": "Recommended by price and quality",
+          "luxury": "Luxury"
+        },
+        "furnishing": {
+          "title": "Furnishing",
+          "furnished": "Furnished",
+          "semiFurnished": "Semi-furnished",
+          "unfurnished": "Unfurnished"
+        },
+        "parking": {
+          "title": "Parking",
+          "garage": "Garage",
+          "private": "Private Parking",
+          "building": "Building Parking",
+          "public": "Public Parking"
+        }
+      }
+    },
+    "property_detail": {
+      "beds": "Beds",
+      "baths": "Baths",
+      "square": "sqf",
+      "price": "Price",
+      "for_sale": "For Sale",
+      "days_on_hously": "Days on Hously",
+      "price_per_sqft": "Price per sq ft",
+      "monthly_payment": "Monthly Payment (estimate)",
+      "monthly": "Monthly",
+      "book_now": "Book Now",
+      "offer_now": "Offer Now",
+      "have_question": "Have Question? Get in touch!",
+      "contact_us": "Contact us",
+      "select_date": "Select Date",
+      "select_date_placeholder": "Choose a date",
+      "select_time": "Select Time",
+      "schedule_appointment": "Schedule Appointment",
+      "description": {
+        "part1": "This beautiful property offers a perfect combination of modern design and functionality. Located in a prestigious part of the city, it provides everything you need for comfortable living.",
+        "part2": "The space is carefully designed to maximize every square foot, giving you plenty of room for living and entertainment. High-quality materials and carefully selected details make this property special.",
+        "part3": "Surrounded by greenery and providing a peaceful environment, while being close to all important city amenities. Ideal for families, but also for those who appreciate modern living."
+      }
+    }
+  }
+  

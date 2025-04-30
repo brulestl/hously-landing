@@ -1,0 +1,211 @@
+{
+    "hero": {
+      "find": "Pronađite savršeni",
+      "for_you": "za vas",
+      "tagline": "Prva inovativna i potpuno digitalizovana crnogorska platforma za kupovinu, prodaju ili iznajmljivanje nekretnina bez skrivenih naknada.",
+      "learn_more": "Saznajte više",
+      "animation": {
+        "home": "stan",
+        "villa": "vila",
+        "office": "kancelarija"
+      }
+    },
+    "form": {
+      "search_label": "Pretraga :",
+      "search_placeholder": "Pretražite ključne riječi",
+      "select_categories_label": "Izaberite kategorije:",
+      "min_price_label": "Minimalna cijena :",
+      "max_price_label": "Maksimalna cijena :",
+      "search_button": "Pretraži"
+    },
+    "categories": {
+      "title": "Kategorije oglasa",
+      "subtitle": "Modern platforma za kupovinu, prodaju ili iznajmljivanje nekretnina bez skrivenih 'administrativnih' troškova.",
+      "cities": {
+        "podgorica": "Podgorica",
+        "bar": "Bar",
+        "tivat": "Tivat",
+        "kotor": "Kotor",
+        "kolasin": "Kolašin"
+      }
+    },
+    "houses": {
+      "apartment": "Stan",
+      "offices": "Kancelarije",
+      "townhome": "Kuća"
+    },
+    "about": {
+      "headline": "Brzo i sigurno prodajte i iznajmite svoju nekretninu",
+      "subheadline": "Uštedite svoje vrijeme i lako prodajte ili iznajmite svoju nekretninu uz najnižu proviziju na tržištu. Predstavite svoju nekretninu modernim 360° pregledom, dosežući tisuće kupaca i stanara koji svakodnevno pretražuju.",
+      "bullets": {
+        "transparent": "100% Transparentno",
+        "no_hidden": "Nema skrivenih troškova",
+        "no_waste_time": "Bez gubljenja vremena"
+      },
+      "main_cta": "Ponudite nekretninu",
+      "learn_more": "Saznajte više",
+      "close_modal": "Zatvori modal"
+    },
+    "index_nine": {
+      "headline": "Kupite ili iznajmite stan bez provizije.",
+      "subheadline": "Prva crnogorska 100% digitalizovana platforma za kupovinu, prodaju ili iznajmljivanje nekretnina bez skrivenih naknada.",
+      "tabs": {
+        "buy": "Kupi",
+        "sell": "Prodaj",
+        "rent": "Iznajmi"
+      },
+      "form": {
+        "search_label": "Pretraga :",
+        "search_placeholder": "Pretražite ključne riječi",
+        "select_categories_label": "Izaberite kategorije:",
+        "min_price_label": "Minimalna cijena :",
+        "max_price_label": "Maksimalna cijena :",
+        "search_button": "Pretraži"
+      },
+      "sections": {
+        "listing_categories": "Kategorije oglasa",
+        "featured_properties": "Istaknute nekretnine",
+        "view_more": "Pogledajte više nekretnina",
+        "meet_team": "Upoznajte tim agenata"
+      }
+    },
+    "feature": {
+      "headline": "Kupite ili iznajmite stan bez provizije",
+      "text": "Nemate dovoljno vremena da pronađete dobro i prijatno mjesto za život? I baš kada pomislite da ste pronašli stan iz snova u stvarnosti, on ne izgleda ni upola lijepo kao na slikama. Znamo kako se osjećate, zato postoji City Expert! Vrijeme je da zaboravite te neugodne trenutke! Nema više iznenađenja jer ćete uz naš inovativni pregled nekretnina imati potpuni uvid u sve što je važno.",
+      "buttons": {
+        "sale": "Kupi nekretninu",
+        "rent": "Iznajmi nekretninu"
+      },
+      "transparency": {
+        "title": "Transparentnost",
+        "text": "Kreiramo sveobuhvatne prezentacije nekretnina s interaktivnim 360° prikazom, visokokvalitetnim fotografijama i videom, tlocrtom za bolji pregled. Jednostavno, brzo i bez gubljenja vremena!"
+      },
+      "direct_communication": {
+        "title": "Direktna komunikacija",
+        "text": "Komunicirajte s vlasnikom direktno kroz samo nekoliko klikova na našoj web stranici. Samo se registrujte, izaberite željenu nekretninu i datum gledanja, a mi ćemo vas povezati s vlasnikom."
+      },
+      "free_of_charge": {
+        "title": "Besplatno za kupce i stanare",
+        "text": "Ako želite kupiti ili iznajmiti svoje novo mjesto za život, mi smo tu da vam pomognemo, potpuno besplatno! Da, dobro ste pročitali, štedimo vaš novac!"
+      }
+    },
+    "counter": {
+        "properties_sold": "Prodatih nekretnina",
+        "international_partners": "8 međunarodnih partnera",
+        "years_of_experience": "9+ godina na tržištu"
+    },
+    "newsletter": {
+        "title": "Prijavi se na Newsletter!",
+        "description": "Prijavi se da za vijesti i obavještenja.",
+        "placeholder": "Unesi email :",
+        "button": "Prijavi se"
+    },
+    "footer": {
+        "platform_description": "Prva inovativna i potpuno digitalizovana crnogorska platforma za nekretnine koja omogućava kupcima kupovinu ili zakup bez provizije. Od podgoričkih stanova do jadranskih vila, pružamo transparentnu pretragu bogatu podacima koja štedi vrijeme i novac domaćim i međunarodnim kupcima.",
+        "company": "Kompanija",
+        "about_us": "O nama",
+        "services": "Usluge",
+        "pricing": "Cijene",
+        "blog": "Blog",
+        "login": "Prijava",
+        "useful_links": "Korisni linkovi",
+        "terms": "Uslovi korišćenja",
+        "privacy": "Politika privatnosti",
+        "listing": "Oglasi",
+        "contact": "Kontakt",
+        "copyright": "© {year} Hously. Dizajn i razvoj sa ❤️ od strane Shreethemes"
+    },
+    "filters": {
+      "title": "Filteri",
+      "apply": "Primijeni",
+      "clear": "Očisti",
+      "rent": {
+        "featured": {
+          "title": "Izdvojeno",
+          "recommended": "Preporučeno po cijeni i kvalitetu",
+          "luxury": "Luksuz"
+        },
+        "furnishing": {
+          "title": "Namještenost",
+          "furnished": "Namješteno",
+          "semiFurnished": "Polunamješteno",
+          "unfurnished": "Prazno"
+        },
+        "amenities": {
+          "title": "Opremljenost",
+          "alarm": "Alarm",
+          "ac": "Klima",
+          "tv": "TV",
+          "washingMachine": "Veš mašina",
+          "bath": "Kada za kupanje",
+          "shower": "Tuš kabina",
+          "dishwasher": "Mašina za sudove"
+        },
+        "building": {
+          "title": "Objekat",
+          "elevator": "Lift",
+          "intercom": "Interfon",
+          "cameras": "Kamere",
+          "security": "Obezbjeđenje",
+          "wheelchairAccess": "Prilaz za kolica"
+        },
+        "parking": {
+          "title": "Parking",
+          "garage": "Garaža",
+          "private": "Privatni parking",
+          "building": "Parking zgrade",
+          "public": "Javni parking"
+        },
+        "pets": {
+          "title": "Ljubimci",
+          "allowed": "Da",
+          "notAllowed": "Ne"
+        }
+      },
+      "buy": {
+        "featured": {
+          "title": "Izdvojeno",
+          "recommended": "Preporučeno po cijeni i kvalitetu",
+          "luxury": "Luksuz"
+        },
+        "furnishing": {
+          "title": "Namještenost",
+          "furnished": "Namješteno",
+          "semiFurnished": "Polunamješteno",
+          "unfurnished": "Prazno"
+        },
+        "parking": {
+          "title": "Parking",
+          "garage": "Garaža",
+          "private": "Privatni parking",
+          "building": "Parking zgrade",
+          "public": "Javni parking"
+        }
+      }
+    },
+    "property_detail": {
+      "beds": "Spavaće sobe",
+      "baths": "Kupatila",
+      "square": "m²",
+      "price": "Cijena",
+      "for_sale": "Na prodaju",
+      "days_on_hously": "Dana na Hously",
+      "price_per_sqft": "Cijena po m²",
+      "monthly_payment": "Mjesečna rata (procjena)",
+      "monthly": "Mjesečno",
+      "book_now": "Rezerviši",
+      "offer_now": "Ponudi",
+      "have_question": "Imate pitanje? Javite nam se!",
+      "contact_us": "Kontaktirajte nas",
+      "select_date": "Izaberite datum",
+      "select_date_placeholder": "Odaberite datum",
+      "select_time": "Izaberite vrijeme",
+      "schedule_appointment": "Zakažite termin",
+      "description": {
+        "part1": "Ova prekrasna nekretnina pruža savršenu kombinaciju modernog dizajna i funkcionalnosti. Smještena u prestižnom dijelu grada, nudi vam sve što je potrebno za udoban život.",
+        "part2": "Prostor je pažljivo osmišljen kako bi maksimalno iskoristio svaki kvadratni metar, pružajući vam dovoljno prostora za život i zabavu. Visokokvalitetni materijali i pažljivo odabrani detalji čine ovu nekretninu posebnom.",
+        "part3": "Okružena je zelenilom i pruža miran ambijent, dok je istovremeno u blizini svih važnih sadržaja grada. Idealna je za porodice, ali i za one koji cijene moderni način života."
+      }
+    }
+  }
+  
