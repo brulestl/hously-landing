@@ -1,13 +1,53 @@
-
+import { useState, useEffect } from 'react';
 import { LuSearch } from "react-icons/lu";
 import Footer from "../component/Footer";
 import Navbar from "../component/Navbar";
-import { properties } from "../component/Properties/data";
+import { getProperties } from '../services/api';
 import Switcher from "../component/Switcher";
 import Pagination from "../component/Pagination";
 
+// Define a type that matches the expected structure for the Pagination component
+interface PropertyData {
+  id: number;
+  image: string;
+  name: string;
+  square: number;
+  beds: number;
+  baths: number;
+  price: number;
+  detail: string[];
+}
 
 export default function GridSidebar() {
+    const [properties, setProperties] = useState<PropertyData[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        async function load() {
+            setLoading(true);
+            try {
+                const response = await getProperties();
+                const mappedProperties = response.map(p => ({
+                    id: p.id,
+                    image: p.image_url || '/assets/images/default-property.jpg',
+                    name: p.title,
+                    square: p.square_feet,
+                    beds: p.beds,
+                    baths: p.baths,
+                    price: p.price,
+                    detail: [] // Add any additional details if needed
+                }));
+                setProperties(mappedProperties);
+            } catch (e) {
+                setError('Failed to load properties');
+            } finally {
+                setLoading(false);
+            }
+        }
+        load();
+    }, []);
+
     return (
         <>
             <Navbar navClass="navbar-white" />
@@ -71,6 +111,8 @@ export default function GridSidebar() {
                         </div>
 
                         <div className="lg:col-span-8 md:col-span-6">
+                            {loading && <div>Loading...</div>}
+                            {error && <div>{error}</div>}
                             <Pagination items={properties} gridClass={`grid lg:grid-cols-2 grid-cols-1 gap-[30px]`} />
                         </div>
                     </div>

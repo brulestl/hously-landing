@@ -1,4 +1,6 @@
 import BackgroundImage from "../assets/images/bg/01.jpg";
+import { useState, useEffect } from 'react';
+import { getProperties } from '../services/api';
 
 import { FiSearch } from "react-icons/fi";
 import BuyTab from "../component/Buy-tab";
@@ -9,7 +11,49 @@ import Navbar from "../component/Navbar";
 import Property from "../component/Properties/property";
 import Switcher from "../component/Switcher";
 
+// Define a type that matches the expected structure for the Property component
+interface PropertyData {
+  id: number;
+  image: string;
+  name: string;
+  square: number;
+  beds: number;
+  baths: number;
+  price: number;
+  detail: string[];
+  rating: number;
+}
+
 export default function Buy() {
+    const [properties, setProperties] = useState<PropertyData[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        async function load() {
+            setLoading(true);
+            try {
+                const response = await getProperties();
+                const mappedProperties = response.map(p => ({
+                    id: p.id,
+                    image: p.image_url || '/assets/images/default-property.jpg',
+                    name: p.title,
+                    square: p.square_feet,
+                    beds: p.beds,
+                    baths: p.baths,
+                    price: p.price,
+                    detail: [],
+                    rating: 0 // Default rating value
+                }));
+                setProperties(mappedProperties);
+            } catch (e) {
+                setError('Failed to load properties');
+            } finally {
+                setLoading(false);
+            }
+        }
+        load();
+    }, []);
 
     return (
         <>
@@ -46,7 +90,9 @@ export default function Buy() {
                     </div>
                 </div>
                 {/* End Hero  */}
-                <Property />
+                {loading && <div>Loading...</div>}
+                {error && <div>{error}</div>}
+                <Property items={properties} loading={loading} error={error} />
                 <Feature />
                 <BuyTab />
                 <GetInTuch/>

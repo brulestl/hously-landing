@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import Select from 'react-select'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { getProperties } from '../services/api';
 
 import { LuSearch } from "react-icons/lu";
 import { RxHome } from "react-icons/rx";
@@ -13,10 +14,25 @@ import Switcher from "../component/Switcher";
 import Pagination from "../component/Pagination";
 import BuyFilters from "../component/BuyFilters";
 
+// Define a type that matches the expected structure for the Pagination component
+interface PropertyData {
+  id: number;
+  image: string;
+  name: string;
+  square: number;
+  beds: number;
+  baths: number;
+  price: number;
+  detail: string[];
+}
+
 export default function GridMap() {
     const { t } = useTranslation();
     const [showFilters, setShowFilters] = useState(false);
     const [activeFilters, setActiveFilters] = useState<any>(null);
+    const [properties, setProperties] = useState<PropertyData[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
 
     const Houses = [
         { value: 'apartment', label: t('houses.apartment') },
@@ -55,6 +71,31 @@ export default function GridMap() {
         setShowFilters(false);
         // Here you can implement the logic to clear all filters
     };
+
+    useEffect(() => {
+        async function load() {
+            setLoading(true);
+            try {
+                const response = await getProperties();
+                const mappedProperties = response.map(p => ({
+                    id: p.id,
+                    image: p.image_url || '/assets/images/default-property.jpg',
+                    name: p.title,
+                    square: p.square_feet,
+                    beds: p.beds,
+                    baths: p.baths,
+                    price: p.price,
+                    detail: [] // Add any additional details if needed
+                }));
+                setProperties(mappedProperties);
+            } catch (e) {
+                setError('Failed to load properties');
+            } finally {
+                setLoading(false);
+            }
+        }
+        load();
+    }, []);
 
     return (
         <>
@@ -127,6 +168,9 @@ export default function GridMap() {
                                             />
                                         </div>
                                     )}
+
+                                    {loading && <div>Loading...</div>}
+                                    {error && <div>{error}</div>}
 
                                     <Pagination items={properties} gridClass="grid lg:grid-cols-3 grid-cols-1 mt-8 gap-[30px]" />
 

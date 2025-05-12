@@ -15,7 +15,9 @@ export interface Property {
 
 export const getProperties = async (): Promise<Property[]> => {
     try {
-        const response = await axios.get<Property[]>(`${API_URL}/properties`);
+        const response = await axios.get<Property[]>(`${API_URL}/properties`, {
+            params: { status: 'active' }
+        });
         return response.data;
     } catch (error) {
         console.error('Error fetching properties:', error);

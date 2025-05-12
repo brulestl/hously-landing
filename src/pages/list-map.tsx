@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Select from 'react-select'
 import { Link } from "react-router-dom";
 
@@ -7,7 +8,7 @@ import { AiOutlineDollarCircle } from "react-icons/ai";
 import { FiFacebook, FiInstagram, FiLinkedin, FiTwitter } from "react-icons/fi";
 import Navbar from '../component/Navbar';
 import PaginationTwo from '../component/Pagination-two';
-import { properties } from '../component/Properties/data';
+import { getProperties } from '../services/api';
 import Switcher from '../component/Switcher';
 
 const Houses = [
@@ -34,8 +35,49 @@ const maxPrice = [
     { value: '5', label: '€6000' },
 ]
 
+// Define a type that matches the expected structure for the PaginationTwo component
+interface PropertyData {
+  id: number;
+  image: string;
+  name: string;
+  square: number;
+  beds: number;
+  baths: number;
+  price: number;
+  detail: string[];
+  rating: number;
+}
 
 export default function ListMap() {
+    const [properties, setProperties] = useState<PropertyData[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        async function load() {
+            setLoading(true);
+            try {
+                const response = await getProperties();
+                const mappedProperties = response.map(p => ({
+                    id: p.id,
+                    image: p.image_url || '/assets/images/default-property.jpg',
+                    name: p.title,
+                    square: p.square_feet,
+                    beds: p.beds,
+                    baths: p.baths,
+                    price: p.price,
+                    detail: [],
+                    rating: 0
+                }));
+                setProperties(mappedProperties);
+            } catch (e) {
+                setError('Failed to load properties');
+            } finally {
+                setLoading(false);
+            }
+        }
+        load();
+    }, []);
 
     return (
         <>
@@ -92,6 +134,9 @@ export default function ListMap() {
                                         </div>
                                     </form>
                                 </div>
+
+                                {loading && <div>Loading...</div>}
+                                {error && <div>{error}</div>}
 
                                 <PaginationTwo items={properties} gridClass={`grid grid-cols-1 mt-8 gap-[30px]`} />
                             </div>

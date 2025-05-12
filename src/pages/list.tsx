@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Select from 'react-select'
 import { LuSearch } from "react-icons/lu";
 import { RxHome } from "react-icons/rx";
@@ -5,8 +6,8 @@ import { AiOutlineDollarCircle } from "react-icons/ai";
 import Footer from '../component/Footer';
 import Navbar from '../component/Navbar';
 import PaginationTwo from '../component/Pagination-two';
-import { properties } from '../component/Properties/data';
 import Switcher from '../component/Switcher';
+import { getProperties, Property } from '../services/api';
 
 const Houses = [
     { value: 'AF', label: 'Apartment' },
@@ -32,7 +33,52 @@ const maxPrice = [
     { value: '5', label: '€6000' },
 ]
 
+// Define a type that matches the expected structure for the PaginationTwo component
+interface PropertyData {
+  id: number;
+  image: string;
+  name: string;
+  square: number;
+  beds: number;
+  baths: number;
+  price: number;
+  rating: number;
+  detail: string[];
+}
+
 export default function List() {
+    const [properties, setProperties] = useState<PropertyData[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+
+    useEffect(() => {
+        const fetchProperties = async () => {
+            try {
+                const data = await getProperties();
+                const formattedProperties = data.map((p: Property) => ({
+                    id: p.id,
+                    image: p.image_url || '/assets/images/default-property.jpg',
+                    name: p.title,
+                    square: p.square_feet,
+                    beds: p.beds,
+                    baths: p.baths,
+                    price: p.price,
+                    rating: 0, // Default rating value
+                    detail: [] // Default detail value
+                }));
+                setProperties(formattedProperties);
+            } catch (err) {
+                setError('Failed to fetch properties');
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchProperties();
+    }, []);
+
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>{error}</div>;
+
     return (
         <>
             <Navbar navClass="navbar-white" />

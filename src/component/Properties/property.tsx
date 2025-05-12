@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 
 import { LiaBathSolid, LiaCompressArrowsAltSolid } from "react-icons/lia";
 import { BiBed } from "react-icons/bi";
-import { properties } from "./data";
 
 interface Property{
     id: number;
@@ -16,7 +15,13 @@ interface Property{
     detail: string[];
 }
 
-export default function Property() {
+interface PropertyProps {
+  items: Property[];
+  loading: boolean;
+  error: string | null;
+}
+
+export default function Property({ items, loading, error }: PropertyProps) {
 
     return (
         <>
@@ -27,8 +32,11 @@ export default function Property() {
                     <p className="text-slate-400 max-w-xl mx-auto">Moderna platforma za kupovinu, prodaju ili iznajmljivanje nekretnina bez skrivenih 'administrativnih' naknada.</p>
                 </div>
 
+                {loading && <div>Loading...</div>}
+                {error && <div>{error}</div>}
+
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-8 gap-[30px]">
-                    {properties.map((item:Property, index:number) => (
+                    {items.map((item:Property, index:number) => (
                         <div className="group rounded-xl bg-white dark:bg-slate-900 shadow-sm hover:shadow-xl dark:hover:shadow-xl shadow-gray-200 dark:shadow-gray-700 dark:hover:shadow-gray-700 overflow-hidden ease-in-out duration-500" key={index}>
                             <div className="relative">
                                 <img src={item.image} alt="" />
