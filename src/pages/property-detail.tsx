@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { SetStateAction, useState } from "react";
+import { SetStateAction, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -21,6 +21,7 @@ import { properties } from "../component/Properties/data";
 import Switcher from "../component/Switcher";
 import withRouter from "../component/withrouter";
 import FloorPlanWrapper from "../component/Properties/FloorPlanWrapper";
+import { getImageUrl } from '../services/firebaseUtils';
 
 const images = [
     Image1,
@@ -36,10 +37,21 @@ function PropertyDetail(props: { params: { id: string; }; }) {
     const [selectedDate, setSelectedDate] = useState<string>("");
     const [selectedTime, setSelectedTime] = useState<string>("");
     const { t } = useTranslation();
+    const [imageUrl, setImageUrl] = useState('');
 
     const slides = images.map((image) => ({ src: image }));
 
     const property = properties.find((user: { id: number; }) => user.id === parseInt(props.params.id));
+
+    useEffect(() => {
+        const fetchImage = async () => {
+            if (property) {
+                const url = await getImageUrl(property.imagePath);
+                setImageUrl(url);
+            }
+        };
+        fetchImage();
+    }, [property]);
 
     const handleCLick = (index: SetStateAction<number>) => {
         setActiveIndex(index)
@@ -55,7 +67,7 @@ function PropertyDetail(props: { params: { id: string; }; }) {
                     <div className="md:flex mt-4">
                         <div className="lg:w-1/2 md:w-1/2 p-1">
                             <div className="group relative overflow-hidden">
-                                <img src={Image1} alt="" />
+                                <img src={imageUrl || '/placeholder.jpg'} alt={property?.name} className="w-full h-full object-cover" />
                                 <div className="absolute inset-0 group-hover:bg-slate-900/70 duration-500 ease-in-out"></div>
                                 <div className="absolute top-1/2 -translate-y-1/2 start-0 end-0 text-center invisible group-hover:visible">
                                     <Link to="#" onClick={() => handleCLick(0)} className="btn btn-icon bg-green-600 hover:bg-green-700 text-white !rounded-full lightbox"><AiOutlineCamera className="text-lg"/></Link>

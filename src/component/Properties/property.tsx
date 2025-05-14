@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-
+import { useEffect, useState } from 'react';
 import { LiaBathSolid, LiaCompressArrowsAltSolid } from "react-icons/lia";
 import { BiBed } from "react-icons/bi";
-import { properties } from "./data";
+import { getProperties } from '../../services/propertyService';
 
 interface Property{
     id: number;
@@ -14,9 +14,21 @@ interface Property{
     price: number;
     rating: number;
     detail: string[];
+    title: string;
+    address: string;
+    city: string;
 }
 
-export default function Property() {
+const PropertyComponent = () => {
+    const [properties, setProperties] = useState<Property[]>([]);
+
+    useEffect(() => {
+        const fetchProperties = async () => {
+            const data = await getProperties();
+            setProperties(data);
+        };
+        fetchProperties();
+    }, []);
 
     return (
         <>
@@ -28,56 +40,27 @@ export default function Property() {
                 </div>
 
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-8 gap-[30px]">
-                    {properties.map((item:Property, index:number) => (
-                        <div className="group rounded-xl bg-white dark:bg-slate-900 shadow-sm hover:shadow-xl dark:hover:shadow-xl shadow-gray-200 dark:shadow-gray-700 dark:hover:shadow-gray-700 overflow-hidden ease-in-out duration-500" key={index}>
-                            <div className="relative">
-                                <img src={item.image} alt="" />
-
-                                <div className="absolute top-4 end-4">
-                                    <Link to="#" className="btn btn-icon bg-white dark:bg-slate-900 shadow-sm shadow-gray-200 dark:shadow-gray-700 !rounded-full text-slate-100 dark:text-slate-700 focus:text-red-600 dark:focus:text-red-600 hover:text-red-600 dark:hover:text-red-600"><i className="mdi mdi-heart mdi-18px"></i></Link>
+                    {properties.map((property) => (
+                        <div key={property.id} className="bg-white shadow-md rounded-lg overflow-hidden">
+                            <img src={property.image} alt={property.name} className="w-full h-48 object-cover" />
+                            <div className="p-4">
+                                <h4 className="text-lg font-semibold">{property.title}</h4>
+                                <p className="text-sm text-gray-600">{property.address}</p>
+                                <div className="flex items-center mt-2">
+                                    <LiaCompressArrowsAltSolid className="text-green-600" />
+                                    <span className="ml-2 text-sm">{property.square} sqft</span>
                                 </div>
-                            </div>
-
-                            <div className="p-6">
-                                <div className="pb-6">
-                                    <Link to={`/property-detail/${item.id}`} className="text-lg hover:text-green-600 font-medium ease-in-out duration-500">{item.name}</Link>
+                                <div className="flex items-center mt-2">
+                                    <BiBed className="text-green-600" />
+                                    <span className="ml-2 text-sm">{property.beds} Beds</span>
                                 </div>
-
-                                <ul className="py-6 border-y border-slate-100 dark:border-gray-800 flex items-center list-none">
-                                    <li className="flex items-center me-4">
-                                        <LiaCompressArrowsAltSolid className="text-2xl me-2 text-green-600"/><i ></i>
-                                        <span>{item.square}m²</span>
-                                    </li>
-
-                                    <li className="flex items-center me-4">
-                                        <BiBed className="text-2xl me-2 text-green-600"/>
-                                        <span>{item.beds} Beds</span>
-                                    </li>
-
-                                    <li className="flex items-center">
-                                        <LiaBathSolid className="text-2xl me-2 text-green-600"/>
-                                        <span>{item.baths} Baths</span>
-                                    </li>
-                                </ul>
-
-                                <ul className="pt-6 flex justify-between items-center list-none">
-                                    <li>
-                                        <span className="text-slate-400">Price</span>
-                                        <p className="text-lg font-medium">€{item.price}</p>
-                                    </li>
-
-                                    <li>
-                                        <span className="text-slate-400">Rating</span>
-                                        <ul className="text-lg font-medium text-amber-400 list-none">
-                                            <li className="inline ms-1"><i className="mdi mdi-star"></i></li>
-                                            <li className="inline ms-1"><i className="mdi mdi-star"></i></li>
-                                            <li className="inline ms-1"><i className="mdi mdi-star"></i></li>
-                                            <li className="inline ms-1"><i className="mdi mdi-star"></i></li>
-                                            <li className="inline ms-1"><i className="mdi mdi-star"></i></li>
-                                            <li className="inline ms-1 text-black dark:text-white">{item.rating}(30)</li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                                <div className="flex items-center mt-2">
+                                    <LiaBathSolid className="text-green-600" />
+                                    <span className="ml-2 text-sm">{property.baths} Baths</span>
+                                </div>
+                                <div className="mt-4">
+                                    <Link to={`/property/${property.id}`} className="text-green-600 hover:underline">View Details</Link>
+                                </div>
                             </div>
                         </div>
                     ))}
@@ -85,6 +68,7 @@ export default function Property() {
             </div>
         </>
     );
+};
 
-}
+export default PropertyComponent;
 

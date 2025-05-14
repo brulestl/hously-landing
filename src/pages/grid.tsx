@@ -1,4 +1,7 @@
 import Select from 'react-select'
+import { useEffect, useState } from 'react';
+import { getProperties } from '../services/propertyService';
+import type { UIProperty } from '../types/property';
 
 import { LuSearch } from "react-icons/lu";
 import { RxHome } from "react-icons/rx";
@@ -9,6 +12,9 @@ import Footer from '../component/Footer';
 import Navbar from '../component/Navbar';
 import Switcher from '../component/Switcher';
 import { properties } from '../component/Properties/data';
+import { Link } from 'react-router-dom';
+import { LiaCompressArrowsAltSolid, LiaBathSolid } from 'react-icons/lia';
+import { BiBed } from 'react-icons/bi';
 
 
 const Houses = [
@@ -36,6 +42,27 @@ const maxPrice = [
 ]
 
 export default function Grid() {
+    const [properties, setProperties] = useState<UIProperty[]>([]);
+    const [filteredProperties, setFilteredProperties] = useState<UIProperty[]>([]);
+
+    useEffect(() => {
+        const fetchProperties = async () => {
+            const data = await getProperties();
+            setProperties(data);
+            setFilteredProperties(data);
+        };
+        fetchProperties();
+    }, []);
+
+    const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const formData = new FormData(event.currentTarget);
+        const searchKeyword = formData.get('name')?.toString().toLowerCase() || '';
+        const filtered = properties.filter(property =>
+            property.name.toLowerCase().includes(searchKeyword)
+        );
+        setFilteredProperties(filtered);
+    };
 
     return (
         <>
@@ -57,7 +84,7 @@ export default function Grid() {
             </div>
             <div className="container relative -mt-16 z-1">
                 <div className="grid grid-cols-1">
-                    <form className="p-6 bg-white dark:bg-slate-900 rounded-xl shadow-md shadow-gray-200 dark:shadow-gray-700">
+                    <form className="p-6 bg-white dark:bg-slate-900 rounded-xl shadow-md shadow-gray-200 dark:shadow-gray-700" onSubmit={handleSearch}>
                         <div className="registration-form text-dark text-start">
                             <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-0 gap-6">
                                 <div>
@@ -106,7 +133,7 @@ export default function Grid() {
 
             <section className="relative lg:py-24 py-16">
                 <div className="container">
-                    <Pagination items={properties} gridClass={`grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[30px]`} />
+                    <Pagination items={filteredProperties} gridClass={`grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[30px]`} />
                 </div>
             </section>
             {/* <!-- End --> */}
